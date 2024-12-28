@@ -1,7 +1,7 @@
 return {
   'nvim-lualine/lualine.nvim',
   opts = {
-    theme = 'catppuccin-macchiato',
+    theme = 'catppuccin-mocha',
     options = {
       component_separators = ' ',
       section_separators = { left = '', right = '' },

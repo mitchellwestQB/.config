@@ -1,6 +1,5 @@
 return { ---- Multiple cursors plugin for vim/neovim
   'mg979/vim-visual-multi',
-  event = 'VeryLazy',
   -- config = function()
   --   vim.cmd [[
   --   			let g:VM_maps = {}

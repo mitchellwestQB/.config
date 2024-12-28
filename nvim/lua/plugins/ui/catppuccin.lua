@@ -3,27 +3,74 @@ return {
   'catppuccin/nvim',
   name = 'catppuccin',
   priority = 1000,
-  flavour = 'macchiato',
+  flavour = 'mocha',
   integrations = {
     cmp = true,
     dashboard = true,
     gitsigns = true,
-    -- nvimtree = true,
     neotree = true,
+    nvimtree = true,
     treesitter = true,
-    notify = false,
     mason = true,
     mini = {
-      enabled = false,
+      enabled = true,
       indentscope_color = '',
     },
     telescope = {
       enabled = true,
-      -- style = "nvchad"
     },
     which_key = true,
   },
-  init = function()
-    vim.cmd 'colorscheme catppuccin-macchiato'
+  -- init = function()
+  --   -- vim.cmd 'colorscheme catppuccin'
+  --
+  --   -- vim.cmd [[colorscheme catppuccin]]
+  -- end,
+  config = function()
+    local dark = '#191926'
+    require('catppuccin').setup {
+      color_overrides = {
+        all = {
+          -- text = '#ffffff',
+        },
+        mocha = {
+          base = '#1e1e2e',
+        },
+        frappe = {},
+        macchiato = {},
+        latte = {},
+      },
+      custom_highlights = function(colors)
+        return {
+          -- LineNr = { },
+          NeoTreeNormal = { bg = dark },
+          NeoTreeNormalNC = { bg = dark },
+          -- ErrorMsg = { bg = dark },
+          -- MsgArea = { bg = dark },
+        }
+      end,
+    }
+    -- config = function()
+    --   require('catppuccin').setup {
+    --     -- color_overrides = {
+    --     --   all = {
+    --     --     text = '#ffffff',
+    --     --   },
+    --     --   mocha = {
+    --     --     base = '#1e1e2e',
+    --     --   },
+    --     --   frappe = {},
+    --     --   macchiato = {},
+    --     --   latte = {},
+    --     -- },
+    --     custom_highlights = function(colors)
+    --       return {
+    --         NeoTreeNormal = { bg = '#191926' },
+    --         NeoTreeNormalNC = { bg = '#191926' },
+    --         NeoTreeEndOfBuffer = { bg = '#191926' },
+    --       }
+    --     end,
+    --   }
+    vim.cmd.colorscheme 'catppuccin'
   end,
 }

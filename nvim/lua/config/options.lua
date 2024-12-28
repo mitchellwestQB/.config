@@ -69,3 +69,5 @@ vim.opt.scrolloff = 10
 -- vim.opt.cmdheight = 1
 --
 vim.opt.pumheight = 8 -- limit completion items
+
+vim.opt.termguicolors = true

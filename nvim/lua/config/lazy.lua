@@ -21,7 +21,7 @@ require('lazy').setup {
     { import = 'plugins.git' },
     { import = 'plugins.lsp' },
   },
-  install = { colorscheme = { 'catppuccin-macchiato' } },
+  install = { colorscheme = { 'catppuccin' } },
   -- {
   --   ui = {
   --     icons = {},
