@@ -1,0 +1,20 @@
+# Disable useless GTK bar
+gtk-titlebar = false
+
+term = xterm-256color
+theme = catppuccin-macchiato
+
+font-size = 16
+fotn-family = "JetBrains Mono Nerd Font Mono"
+font-style = Medium
+font-style-italic = Medium Italic
+font-style-bold = Bold
+font-style-bold-italic = Bold Italic
+
+mouse-hide-while-typing = true
+background-opacity = 0.75
+
+macos-option-as-alt = true
+
+shell-integration = zsh
+
