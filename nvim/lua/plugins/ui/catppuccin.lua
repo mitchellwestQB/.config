@@ -5,20 +5,34 @@ return {
   priority = 1000,
   flavour = 'mocha',
   integrations = {
-    cmp = true,
+    -- cmp = true,
+    dap = true,
+    dap_ui = true,
     dashboard = true,
+    dropbar = {
+      enabled = false,
+      color_mode = false, -- enable color for kind's texts, not just kind's icons
+    },
     gitsigns = true,
+    fidget = true,
+    harpoon = false,
     neotree = true,
     nvimtree = true,
+    native_lsp = {
+      enabled = true,
+    },
     treesitter = true,
     mason = true,
     mini = {
       enabled = true,
       indentscope_color = '',
     },
+    noice = true,
+    render_markdown = true,
     telescope = {
       enabled = true,
     },
+    lsp_trouble = false,
     which_key = true,
   },
   -- init = function()
@@ -30,9 +44,7 @@ return {
     local dark = '#191926'
     require('catppuccin').setup {
       color_overrides = {
-        all = {
-          -- text = '#ffffff',
-        },
+        all = {},
         mocha = {
           base = '#1e1e2e',
         },

@@ -9,7 +9,7 @@ return {
   'onsails/lspkind-nvim',
   config = config,
   event = 'InsertEnter',
-  dependencies = {
-    'hrsh7th/nvim-cmp',
-  },
+  -- dependencies = {
+  --   'hrsh7th/nvim-cmp',
+  -- },
 }
