@@ -11,10 +11,20 @@ end ---@diagnostic disable-next-line: undefined-field
 vim.opt.rtp:prepend(lazypath)
 
 -- [[ Configure and install plugins ]]
-require('lazy').setup({}, {
-  ui = {
-    -- If you are using a Nerd Font: set icons to an empty table which will use the
-    -- default lazy.nvim defined Nerd Font icons, otherwise define a unicode icons table
-    icons = {},
+require('lazy').setup {
+  spec = {
+    -- add LazyVim and import its plugins
+    -- { 'LazyVim/LazyVim', import = 'lazyvim.plugins' },
+    -- import/override with your plugins
+    { import = 'plugins.editor' },
+    { import = 'plugins.ui' },
+    { import = 'plugins.git' },
+    { import = 'plugins.lsp' },
   },
-})
+  install = { colorscheme = { 'catppuccin-macchiato' } },
+  -- {
+  --   ui = {
+  --     icons = {},
+  --   },
+  -- },
+}
