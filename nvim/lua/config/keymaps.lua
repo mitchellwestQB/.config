@@ -37,7 +37,3 @@ bind('x', '<leader>p', '"_dP')
 
 -- Translate to english
 bind('n', '<leader>T', '<cmd>Translate EN<CR>', { desc = '[T]ranslate EN' })
-
--- Navigation with option + h and l
-bind('n', '<M-h>', 'b')
-bind('n', '<M-l>', 'w')

@@ -52,11 +52,14 @@ return {
         macchiato = {},
         latte = {},
       },
+      transparent_background = true,
       custom_highlights = function(colors)
         return {
           -- LineNr = { },
           NeoTreeNormal = { bg = dark },
           NeoTreeNormalNC = { bg = dark },
+          StatusLine = { bg = 'NONE' },
+          StatusLineNC = { bg = 'NONE' },
           -- ErrorMsg = { bg = dark },
           -- MsgArea = { bg = dark },
         }
