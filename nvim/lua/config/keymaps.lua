@@ -11,15 +11,18 @@ bind('n', '<Esc>', '<cmd>nohlsearch<CR>')
 bind('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 
 -- Toggle diagnostics
-local diagnostics_active = true
-bind('n', '<leader>td', function()
-  diagnostics_active = not diagnostics_active
-  if diagnostics_active then
-    vim.diagnostic.show()
-  else
-    vim.diagnostic.hide()
-  end
-end, { desc = '[t]oggle [d]iagnostics' })
+-- local diagnostics_active = true
+-- bind('n', '<leader>td', function()
+--   diagnostics_active = not diagnostics_active
+--   if diagnostics_active then
+--     vim.diagnostic.show()
+--   else
+--     vim.diagnostic.hide()
+--   end
+-- end, { desc = '[t]oggle [d]iagnostics' })
+vim.keymap.set('n', '<leader>td', function()
+  vim.diagnostic.enable(not vim.diagnostic.is_enabled())
+end, { silent = true, noremap = true })
 
 -- Exit terminal mode
 bind('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
