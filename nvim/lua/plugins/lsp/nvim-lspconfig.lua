@@ -13,6 +13,9 @@ return {
     -- Allows extra capabilities provided by nvim-cmp
     -- 'hrsh7th/cmp-nvim-lsp',
     { 'saghen/blink.cmp' },
+    {
+      'microsoft/python-type-stubs',
+    },
   },
   config = function()
     vim.api.nvim_create_autocmd('LspAttach', {
@@ -120,6 +123,9 @@ return {
       lua_ls = {
         settings = {
           Lua = {
+            diagnostics = {
+              globals = { 'vim' },
+            },
             completion = {
               callSnippet = 'Replace',
             },
@@ -136,14 +142,19 @@ return {
 
             analysis = {
               -- ignore = { '*' }, -- Ignore all files for analysis to exclusively use Ruff for linting
-              typeCheckingMode = 'basic',
+              -- exclude = { 'node_modules', '.git', '.cache', '.local', '.config', '.vscode', '.idea', '.github', '.venv', 'docs', '__pycache__' },
+              -- typeCheckingMode = 'basic',
+              typeCheckingMode = 'off',
+              extraPaths = { '.', './src' },
               -- useLibraryCodeForTypes = true, -- Analyze library code for type information
               -- autoImportCompletions = true,
-              diagnosticMode = 'workspace',
-              -- autoSearchPaths = true,
+              diagnosticMode = 'openFilesOnly',
+              -- diagnosticMode = 'workspace',
+              autoSearchPaths = true,
               -- diagnosticSeverityOverrides = {
               --   reportIgnoreCommentWithoutRule = true,
               -- },
+              stubPath = vim.fn.stdpath 'data' .. '/lazy/python-type-stubs',
             },
           },
         },

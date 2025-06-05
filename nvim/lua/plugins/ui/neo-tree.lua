@@ -16,6 +16,20 @@ return {
   },
   opts = {
     filesystem = {
+      filtered_items = {
+        visible = false, -- Hidden files/folders are not shown by default
+        hide_dotfiles = true, -- Hide dotfiles (e.g., .gitignore)
+        hide_gitignored = true, -- Hide git-ignored files (e.g., __pycache__ if in .gitignore)
+        hide_by_name = {
+          '__pycache__', -- Hide __pycache__ folders
+        },
+        hide_by_pattern = {
+          '*.pyc', -- Hide .pyc files
+        },
+        never_show = {}, -- Empty to allow toggling __pycache__ visibility
+        never_show_by_pattern = {}, -- Empty for flexibility
+      },
+      use_libuv_file_watcher = true, -- Respect .gitignore
       window = {
         mappings = {
           ['\\'] = 'close_window',
