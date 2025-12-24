@@ -1,0 +1,12 @@
+#:schema https://jj-vcs.github.io/jj/latest/config-schema.json
+
+[user]
+name = "mitchellwestQB"
+email = "mitchell_west@mckinsey.com"
+
+[ui]
+editor = "nvim"
+
+[git]
+# Prevent pushing work in progress or anything explicitly labeled "private"
+private-commits = "description(glob:'wip:*') | description(glob:'private:*')"

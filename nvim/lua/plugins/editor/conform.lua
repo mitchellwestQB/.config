@@ -33,7 +33,14 @@ return {
     end,
     formatters_by_ft = {
       lua = { 'stylua' },
-      python = { 'ruff_format' }, --'isort', 'black', 'ruff', 'pyright' },
+      python = {
+        -- To fix auto-fixable lint errors.
+        'ruff_fix',
+        -- To run the Ruff formatter.
+        'ruff_format',
+        -- To organize the imports.
+        'ruff_organize_imports',
+      },
     },
   },
 }

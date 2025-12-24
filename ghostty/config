@@ -31,10 +31,11 @@ palette = 14=#6bd7ca
 palette = 15=#bac2de
 font-size = 16
 font-thicken = true
-font-family = JetBrainsMono Nerd Font Mono
-font-style = Medium
-font-style-bold = Bold
-font-style-italic = Medium Italic
-font-style-bold-italic = Bold Italic
+# font-family = JetBrains Mono
+# font-style = Medium
+font-family = Iosevka SS14 Medium Extended
+# font-style-bold = Bold
+# font-style-italic = Medium Italic
+# font-style-bold-italic = Bold Italic
 macos-titlebar-style = hidden
 macos-option-as-alt = true
