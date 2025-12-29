@@ -4,57 +4,10 @@ return {
   name = 'catppuccin',
   priority = 1000,
   flavour = 'mocha',
-  integrations = {
-    -- cmp = true,
-    dap = true,
-    dap_ui = true,
-    dashboard = true,
-    dropbar = {
-      enabled = false,
-      color_mode = false, -- enable color for kind's texts, not just kind's icons
-    },
-    gitsigns = true,
-    fidget = true,
-    harpoon = false,
-    neotree = true,
-    nvimtree = true,
-    treesitter = true,
-    mason = true,
-    mini = {
-      enabled = true,
-      indentscope_color = '',
-    },
-    noice = true,
-    render_markdown = true,
-    telescope = {
-      enabled = true,
-    },
-    lsp_trouble = false,
-    native_lsp = {
-      enabled = true,
-      virtual_text = {
-        errors = { 'italic' },
-        hints = { 'italic' },
-        warnings = { 'italic' },
-        information = { 'italic' },
-      },
-      underlines = {
-        errors = { 'underline' },
-        hints = { 'underline' },
-        warnings = { 'underline' },
-        information = { 'underline' },
-      },
-    },
-    which_key = true,
-  },
-  -- init = function()
-  --   -- vim.cmd 'colorscheme catppuccin'
-  --
-  --   -- vim.cmd [[colorscheme catppuccin]]
-  -- end,
   config = function()
     local dark = '#191926'
     require('catppuccin').setup {
+      auto_integrations = true,
       color_overrides = {
         all = {},
         mocha = {
@@ -70,34 +23,23 @@ return {
           -- LineNr = { },
           NeoTreeNormal = { bg = dark },
           NeoTreeNormalNC = { bg = dark },
-          StatusLine = { bg = 'NONE' },
-          StatusLineNC = { bg = 'NONE' },
+          StatusLine = { bg = 'none' },
+          StatusLineNC = { bg = 'none' },
           -- ErrorMsg = { bg = dark },
           -- MsgArea = { bg = dark },
+          NormalFloat = { bg = 'none' },
+          TelescopeBorder = { bg = 'none' },
+          TelescopePromptBorder = { bg = 'none' },
+          TelescopeResultsBorder = { bg = 'none' },
+          TelescopePreviewBorder = { bg = 'none' },
+          TelescopeNormal = { bg = 'none' },
+          TelescopePromptNormal = { bg = 'none' },
+          TelescopePromptTitle = { fg = colors.pink, bg = 'none' },
+          TelescopePreviewTitle = { fg = colors.green, bg = 'none' },
+          TelescopeResultsTitle = { fg = colors.blue, bg = 'none' },
         }
       end,
     }
-    -- config = function()
-    --   require('catppuccin').setup {
-    --     -- color_overrides = {
-    --     --   all = {
-    --     --     text = '#ffffff',
-    --     --   },
-    --     --   mocha = {
-    --     --     base = '#1e1e2e',
-    --     --   },
-    --     --   frappe = {},
-    --     --   macchiato = {},
-    --     --   latte = {},
-    --     -- },
-    --     custom_highlights = function(colors)
-    --       return {
-    --         NeoTreeNormal = { bg = '#191926' },
-    --         NeoTreeNormalNC = { bg = '#191926' },
-    --         NeoTreeEndOfBuffer = { bg = '#191926' },
-    --       }
-    --     end,
-    --   }
     vim.cmd.colorscheme 'catppuccin'
   end,
 }

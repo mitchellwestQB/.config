@@ -212,24 +212,30 @@ disabled = true
 use_git_executable = false
 
 # jj stuff
-[custom.jj]
-symbol = " "
-format = "[$symbol($output )]($style)"
-command = "prompt"
-when = true
-require_repo = false
-shell = [
-    "starship-jj",
-    "--ignore-working-copy",
-    "starship",
-]
-description = "<custom config>"
-style = "bold pink"
-disabled = false
-detect_files = []
-detect_extensions = []
-detect_folders = []
-use_stdin = false
-ignore_timeout = true
-unsafe_no_escape = false
+# [custom.jj]
+# symbol = " "
+# format = "[$symbol($output )]($style)"
+# command = "prompt"
+# when = true
+# require_repo = false
+# shell = [
+#     "starship-jj",
+#     "--ignore-working-copy",
+#     "starship",
+# ]
+# description = "<custom config>"
+# style = "bold pink"
+# disabled = false
+# detect_files = []
+# detect_extensions = []
+# detect_folders = []
+# use_stdin = false
+# ignore_timeout = true
+# unsafe_no_escape = false
 
+[custom.jj]
+# symbol = " "
+command = "jj-starship"
+detect_folders = [".jj", ".git"]
+shell = ["sh"]
+format = "$output "
