@@ -5,21 +5,12 @@ local bind = vim.keymap.set
 
 -- Clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`
-bind('n', '<Esc>', '<cmd>nohlsearch<CR>')
+bind('n', '<Esc>', '<cmd>nohlsearch<CR>', { desc = 'Clear search highlights' })
 
 -- Diagnostic keymaps
 bind('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 
 -- Toggle diagnostics
--- local diagnostics_active = true
--- bind('n', '<leader>td', function()
---   diagnostics_active = not diagnostics_active
---   if diagnostics_active then
---     vim.diagnostic.show()
---   else
---     vim.diagnostic.hide()
---   end
--- end, { desc = '[t]oggle [d]iagnostics' })
 vim.keymap.set('n', '<leader>td', function()
   vim.diagnostic.enable(not vim.diagnostic.is_enabled())
 end, { silent = true, noremap = true })
@@ -36,7 +27,7 @@ bind('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 bind('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
 -- Paste without changing yank
-bind('x', '<leader>p', '"_dP')
+bind('x', '<leader>p', '"_dP', { desc = 'Paste without changing yank' })
 
--- Translate to english
-bind('n', '<leader>T', '<cmd>Translate EN<CR>', { desc = '[T]ranslate EN' })
+-- Oil file explorer
+bind('n', '<leader>O', '<CMD>Oil<CR>', { desc = 'Open [O]il' })
