@@ -135,6 +135,7 @@ return {
       ty = {
         settings = {},
       },
+      -- mojo = {},
       basedpyright = {
         capabilities = capabilities,
         settings = {
@@ -187,6 +188,7 @@ return {
     -- vim.lsp.enable 'basedpyright'
     vim.lsp.enable 'ty'
     vim.lsp.enable 'ruff'
+    -- vim.lsp.enable 'mojo'
 
     -- require('mason-tool-installer').setup {
     --   -- ensure_installed = ensure_installed

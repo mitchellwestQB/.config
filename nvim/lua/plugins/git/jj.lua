@@ -1,68 +1,21 @@
 return {
-  'julienvincent/hunk.nvim',
-  cmd = { 'DiffEditor' },
+  'nicolasgb/jj.nvim',
+  version = '*', -- Use latest stable release
+  -- Or from the main branch (uncomment the branch line and comment the version line)
+  -- branch = "main",
+  dependencies = {
+    'sindrets/diffview.nvim', -- Optional for diffview backend
+  },
   config = function()
-    require('hunk').setup {
-      keys = {
-        global = {
-          quit = { 'q' },
-          accept = { '<leader><Cr>' },
-          focus_tree = { '<leader>e' },
-        },
-
-        tree = {
-          expand_node = { 'l', '<Right>' },
-          collapse_node = { 'h', '<Left>' },
-
-          open_file = { '<Cr>' },
-
-          toggle_file = { 'a' },
-        },
-
-        diff = {
-          toggle_hunk = { 'A' },
-          toggle_line = { 'a' },
-          -- This is like toggle_line but it will also toggle the line on the other
-          -- 'side' of the diff.
-          toggle_line_pair = { 's' },
-
-          prev_hunk = { '[h' },
-          next_hunk = { ']h' },
-
-          -- Jump between the left and right diff view
-          toggle_focus = { '<Tab>' },
-        },
-      },
-
-      ui = {
-        tree = {
-          -- Mode can either be `nested` or `flat`
-          mode = 'nested',
-          width = 35,
-        },
-        --- Can be either `vertical` or `horizontal`
+    require('jj').setup {
+      diff = {
+        -- Default backend for viewing diffs
+        -- "native" - Built-in split diff using Neovim's diff mode (default)
+        -- "diffview" - Use diffview.nvim plugin (requires diffview.nvim)
+        -- "codediff" - Use codediff.nvim plugin (requires codediff.nvim)
+        -- Or any custom backend name you've registered
+        backend = 'native',
         layout = 'vertical',
-      },
-
-      icons = {
-        enable_file_icons = true,
-
-        selected = '󰡖',
-        deselected = '',
-        partially_selected = '󰛲',
-
-        folder_open = '',
-        folder_closed = '',
-
-        expanded = '',
-        collapsed = '',
-      },
-      -- Called right after each window and buffer are created.
-      hooks = {
-        ---@param _context { buf: number, tree: NuiTree, opts: table }
-        on_tree_mount = function(_context) end,
-        ---@param _context { buf: number, win: number }
-        on_diff_mount = function(_context) end,
       },
     }
   end,
