@@ -5,8 +5,10 @@ name = "mitchellwest"
 email = "mitchell-west@hotmail.com"
 
 [ui]
-editor = "nvim"
+# editor = "nvim"
 diff-editor = ["nvim", "-c", "DiffEditor $left $right $output"]
+editor = "nvim"
+default-command = "log"
 
 [git]
 # Prevent pushing work in progress or anything explicitly labeled "private"

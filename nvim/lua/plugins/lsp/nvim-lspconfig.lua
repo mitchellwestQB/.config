@@ -103,7 +103,7 @@ return {
     --   desc = 'LSP: Disable hover capability from Ruff',
     -- })
 
-    -- local capabilities = vim.lsp.protocol.make_client_capabilities()
+    local capabilities = vim.lsp.protocol.make_client_capabilities()
     -- capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
 
     -- setup lsp servers
@@ -123,14 +123,47 @@ return {
       ty = {
         settings = {},
       },
-      -- ruff = {
-      --   capabilities = capabilities,
-      --   init_options = {
-      --     settings = {
-      --       configuration = '~/.config/ruff/ruff.toml',
-      --     },
-      --   },
-      -- },
+      -- mojo = {},
+      basedpyright = {
+        capabilities = capabilities,
+        settings = {
+          basedpyright = {
+            disableOrganizeImports = true,
+            disableTaggedHints = false,
+            disableLanguageServices = false,
+
+            reportAny = false,
+            reportUnknownMemberType = false,
+            reportMissingTypeStubs = 'none',
+            reportExplicitAny = 'none',
+
+            analysis = {
+              -- ignore = { '*' }, -- Ignore all files for analysis to exclusively use Ruff for linting
+              -- exclude = { 'node_modules', '.git', '.cache', '.local', '.config', '.vscode', '.idea', '.github', '.venv', 'docs', '__pycache__' },
+              -- typeCheckingMode = 'basic',
+              typeCheckingMode = 'off',
+              extraPaths = { '.', './src' },
+              -- useLibraryCodeForTypes = true, -- Analyze library code for type information
+              -- autoImportCompletions = true,
+              diagnosticMode = 'openFilesOnly',
+              -- diagnosticMode = 'workspace',
+              autoSearchPaths = true,
+              -- diagnosticSeverityOverrides = {
+              --   reportIgnoreCommentWithoutRule = true,
+              -- },
+              stubPath = vim.fn.stdpath 'data' .. '/lazy/python-type-stubs',
+            },
+          },
+        },
+      },
+      ruff = {
+        capabilities = capabilities,
+        init_options = {
+          settings = {
+            configuration = '~/.config/ruff/ruff.toml',
+          },
+        },
+      },
     }
 
     local ensure_installed = vim.tbl_keys(servers or {})
@@ -140,5 +173,25 @@ return {
 
     -- enable the servers
     vim.lsp.enable 'ty'
+    vim.lsp.enable 'ruff'
+    -- vim.lsp.enable 'mojo'
+
+    -- require('mason-tool-installer').setup {
+    --   -- ensure_installed = ensure_installed
+    -- }
+    --
+    -- require('mason-lspconfig').setup {
+    --   handlers = {
+    --     function(server_name)
+    --       local server = servers[server_name] or {}
+    --       -- This handles overriding only values explicitly passed
+    --       -- by the server configuration above. Useful when disabling
+    --       -- certain features of an LSP (for example, turning off formatting for ts_ls)
+    --       server.capabilities = require('blink.cmp').get_lsp_capabilities(server.capabilities)
+    --       server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
+    --       require('lspconfig')[server_name].setup(server)
+    --     end,
+    --   },
+    -- }
   end,
 }
