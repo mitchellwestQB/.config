@@ -1,8 +1,8 @@
 #:schema https://jj-vcs.github.io/jj/latest/config-schema.json
 
 [user]
-name = "mitchellwestQB"
-email = "mitchell_west@mckinsey.com"
+name = "mitchellwest"
+email = "mitchell-west@hotmail.com"
 
 [ui]
 # editor = "nvim"

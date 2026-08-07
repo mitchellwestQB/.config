@@ -2,17 +2,6 @@ return {
   -- Main LSP Configuration
   'neovim/nvim-lspconfig',
   dependencies = {
-    -- Automatically install LSPs and related tools to stdpath for Neovim
-    -- { 'williamboman/mason.nvim', config = true }, -- NOTE: Must be loaded before dependants
-    -- 'williamboman/mason-lspconfig.nvim',
-    -- 'WhoIsSethDaniel/mason-tool-installer.nvim',
-
-    -- Useful status updates for LSP.
-    { 'j-hui/fidget.nvim', opts = {} },
-
-    -- Allows extra capabilities provided by nvim-cmp
-    -- 'hrsh7th/cmp-nvim-lsp',
-    { 'saghen/blink.cmp' },
     { 'microsoft/python-type-stubs' },
   },
   config = function()
@@ -107,7 +96,7 @@ return {
     --       return
     --     end
     --     if client.name == 'ruff' then
-    --       -- Disable hover in favor of Pyright
+    --       -- Disable hover in favor of ty
     --       client.server_capabilities.hoverProvider = false
     --     end
     --   end,
@@ -116,9 +105,8 @@ return {
 
     local capabilities = vim.lsp.protocol.make_client_capabilities()
     -- capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
-    --
-    -- setup lsp servers
 
+    -- setup lsp servers
     local servers = {
       lua_ls = {
         settings = {
@@ -177,7 +165,6 @@ return {
         },
       },
     }
-    -- require('mason').setup()
 
     local ensure_installed = vim.tbl_keys(servers or {})
     vim.list_extend(ensure_installed, {
@@ -185,7 +172,6 @@ return {
     })
 
     -- enable the servers
-    -- vim.lsp.enable 'basedpyright'
     vim.lsp.enable 'ty'
     vim.lsp.enable 'ruff'
     -- vim.lsp.enable 'mojo'
